@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tv-app-blocker"
+version = "0.2.0"
+description = "A local, schedule-based smart TV app blocker"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "TV App Blocker contributors" }]
+dependencies = [
+  "python-dotenv>=1.0",
+  "tzdata>=2024.1; platform_system == 'Windows'",
+]
+
+[project.scripts]
+tv-blocker = "roku_blocker.cli:main"
+roku-blocker = "roku_blocker.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+roku_blocker = ["py.typed"]

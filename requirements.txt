@@ -1,0 +1,3 @@
+# Local editable install for development
+-e .
+tzdata==2026.3

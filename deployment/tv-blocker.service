@@ -1,0 +1,16 @@
+[Unit]
+Description=Scheduled smart TV app blocker
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Replace YOUR_USER and both paths before installing this file.
+User=YOUR_USER
+WorkingDirectory=/opt/tv-app-blocker
+ExecStart=/opt/tv-app-blocker/.venv/bin/tv-blocker run --config /opt/tv-app-blocker/config.json
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
